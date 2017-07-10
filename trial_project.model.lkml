@@ -6,6 +6,7 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
+persist_for: "4 hours"
 explore: devices {
   join: enterprises {
     type: left_outer
