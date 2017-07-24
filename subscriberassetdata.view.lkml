@@ -139,6 +139,7 @@ view: subscriberassetdata {
   dimension: assetstatusassigned {
     type: number
     sql: ${TABLE}.assetstatusassigned ;;
+    drill_fields: [banname]
   }
 
   dimension: assetstatusinventory {
