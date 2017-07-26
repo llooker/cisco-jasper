@@ -335,27 +335,27 @@ view: usagedata {
   measure: domesticUsage {
     type: sum
     sql: ${subscriberdomesticdataused} ;;
-    drill_fields: [masterban_name, subscriberrateplanname, subscriberfirstname, subscriberlastname]
+    drill_fields: [ban, domesticUsage]
 
   }
 
   measure: domesticOverage {
     type:  sum
     sql: ${subscriberdomesticoverageusage} ;;
-    drill_fields: [masterban_name, subscriberrateplanname, subscriberfirstname, subscriberlastname]
+    drill_fields: [ban, domesticOverage]
 
   }
 
   measure: totalOverage {
     type: sum
     sql: ${subscriberdomesticdataused} + ${subscriberroamingdataused} ;;
-    drill_fields: [ban]
+    drill_fields: [ban, totalOverage]
   }
 
   measure: roamingUsage {
     type: sum
     sql: ${subscriberroamingdataused} ;;
-    drill_fields: [masterban_name, subscriberrateplanname, subscriberfirstname, subscriberlastname]
+    drill_fields: [ban, roamingUsage]
   }
 
   measure: totalUsage {
@@ -367,13 +367,13 @@ view: usagedata {
   measure: domesticSMSUsage {
     type:  sum
     sql: ${subscriberdomesticsmsindividualusage} ;;
-    drill_fields: [masterban_name]
+    drill_fields: [ban, domesticSMSUsage]
   }
 
   measure: roamingSMSUsage {
     type:  sum
     sql: ${subscriberroamingsmsindividualusage} ;;
-    drill_fields: [masterban_name]
+    drill_fields: [ban, roamingSMSUsage ]
   }
 
 

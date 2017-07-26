@@ -910,22 +910,23 @@ view: invoicedata {
   measure: domesticPhoneLongDistanceMinutes {
     type: sum
     sql: ${invoicedomphoneldminschargeable} ;;
+    drill_fields: [ban, domesticPhoneLongDistanceMinutes]
   }
 
   measure: domesticPhoneMinutes {
     type: sum
     sql: ${invoicephoneminsday} + ${invoicephoneminseve} + ${invoicephonechargeswkd} ;;
-    drill_fields: [masterban_name]
+    drill_fields: [ban, domesticPhoneMinutes]
   }
   measure: roamingPhoneLongDistanceMinutes{
     type: sum
     sql: ${invoiceusintlphoneroamldmins} ;;
-    drill_fields: [masterban_name]
+    drill_fields: [ban, roamingPhoneLongDistanceMinutes]
   }
   measure: roamingPhoneMinutes{
     type: sum
     sql: ${invoiceusintlphoneroammins} ;;
-    drill_fields: [masterban_name]
+    drill_fields: [ban, roamingPhoneMinutes]
   }
   measure: count {
     type: count
