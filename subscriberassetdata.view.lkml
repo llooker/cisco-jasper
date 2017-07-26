@@ -134,12 +134,12 @@ view: subscriberassetdata {
   dimension: assetstatus {
     type: string
     sql: ${TABLE}.assetstatus ;;
+    drill_fields: [banname]
   }
 
   dimension: assetstatusassigned {
     type: number
     sql: ${TABLE}.assetstatusassigned ;;
-    drill_fields: [banname]
   }
 
   dimension: assetstatusinventory {
@@ -385,6 +385,7 @@ view: subscriberassetdata {
   dimension: subscribersourcedevicestate {
     type: string
     sql: ${TABLE}.subscribersourcedevicestate ;;
+    drill_fields: [banname]
   }
 
   dimension: subscriberstatusactive {
@@ -414,6 +415,18 @@ view: subscriberassetdata {
 
   measure: count {
     type: count
-    drill_fields: [subscriberfirstname, subscriberlastname, subscriberrateplanname, banname, masterbanname]
+    drill_fields: [banname]
+    link: {label:"Drill by BAN" url:"/embed/looks/7"}
+  }
+
+  measure: subscriber_count {
+    type: count_distinct
+    sql: ${subscribericcid} ;;
+    drill_fields: [banname]
+  }
+
+  measure: count_unique {
+    type: count_distinct
+    drill_fields: [banname]
   }
 }

@@ -907,6 +907,26 @@ view: invoicedata {
     sql: ${TABLE}.usagenpisubbillrawdataid ;;
   }
 
+  measure: domesticPhoneLongDistanceMinutes {
+    type: sum
+    sql: ${invoicedomphoneldminschargeable} ;;
+  }
+
+  measure: domesticPhoneMinutes {
+    type: sum
+    sql: ${invoicephoneminsday} + ${invoicephoneminseve} + ${invoicephonechargeswkd} ;;
+    drill_fields: [masterban_name]
+  }
+  measure: roamingPhoneLongDistanceMinutes{
+    type: sum
+    sql: ${invoiceusintlphoneroamldmins} ;;
+    drill_fields: [masterban_name]
+  }
+  measure: roamingPhoneMinutes{
+    type: sum
+    sql: ${invoiceusintlphoneroammins} ;;
+    drill_fields: [masterban_name]
+  }
   measure: count {
     type: count
     drill_fields: [detail*]

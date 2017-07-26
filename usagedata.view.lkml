@@ -5,6 +5,7 @@ view: usagedata {
   dimension: ban {
     type: string
     sql: ${TABLE}.ban ;;
+    drill_fields: [subscribersimid]
     link: {
       label: "Do the thing!"
       url: "https://127.0.0.1:9999/spaces/1"
@@ -345,6 +346,12 @@ view: usagedata {
 
   }
 
+  measure: totalOverage {
+    type: sum
+    sql: ${subscriberdomesticdataused} + ${subscriberroamingdataused} ;;
+    drill_fields: [ban]
+  }
+
   measure: roamingUsage {
     type: sum
     sql: ${subscriberroamingdataused} ;;
@@ -357,6 +364,18 @@ view: usagedata {
     drill_fields: [masterban_name, subscriberrateplanname, subscriberfirstname, subscriberlastname]
 
   }
+  measure: domesticSMSUsage {
+    type:  sum
+    sql: ${subscriberdomesticsmsindividualusage} ;;
+    drill_fields: [masterban_name]
+  }
+
+  measure: roamingSMSUsage {
+    type:  sum
+    sql: ${subscriberroamingsmsindividualusage} ;;
+    drill_fields: [masterban_name]
+  }
+
 
   measure: statePercent {
     type: percent_of_total
