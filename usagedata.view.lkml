@@ -39,6 +39,7 @@ view: usagedata {
       year
     ]
     sql: ${TABLE}.dateadded ;;
+    drill_fields: [ban]
   }
 
   dimension: flexfield1 {
@@ -304,7 +305,7 @@ view: usagedata {
   }
 
   dimension: subscribersimid {
-    type: number
+    type: string
     value_format_name: id
     sql: ${TABLE}.subscribersimid ;;
 

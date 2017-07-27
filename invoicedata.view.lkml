@@ -928,6 +928,22 @@ view: invoicedata {
     sql: ${invoiceusintlphoneroammins} ;;
     drill_fields: [ban, roamingPhoneMinutes]
   }
+
+  measure: domesticDataUsage{
+    type: sum
+    sql: ${invoicedomesticdatausage} ;;
+    drill_fields: [ban, domesticDataUsage]
+  }
+
+  measure: roamingDataUsage{
+    type: sum
+    sql: ${invoiceroamingdatausage} ;;
+    drill_fields: [ban, roamingDataUsage]
+  }
+
+
+
+
   measure: count {
     type: count
     drill_fields: [detail*]
