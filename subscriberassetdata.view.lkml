@@ -422,7 +422,7 @@ view: subscriberassetdata {
   measure: subscriber_count {
     type: count_distinct
     sql: ${subscribericcid} ;;
-    drill_fields: [banname]
+    drill_fields: [banname, subscriber_count]
   }
 
   measure: count_unique {
