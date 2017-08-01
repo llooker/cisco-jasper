@@ -349,7 +349,7 @@ view: usagedata {
 
   measure: totalOverage {
     type: sum
-    sql: ${subscriberdomesticdataused} + ${subscriberroamingdataused} ;;
+    sql: ${subscriberdomesticoverageusage} + ${subscriberroamingoverageusage} ;;
     drill_fields: [ban, totalOverage]
   }
 

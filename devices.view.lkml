@@ -34,6 +34,7 @@ view: devices {
       year
     ]
     sql: ${TABLE}.contractstartdate ;;
+    drill_fields: [usagedata.ban]
   }
 
   dimension_group: dateadded {
